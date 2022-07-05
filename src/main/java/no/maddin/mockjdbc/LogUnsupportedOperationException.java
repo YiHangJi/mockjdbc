@@ -7,5 +7,6 @@ package no.maddin.mockjdbc;
 public class LogUnsupportedOperationException extends UnsupportedOperationException {
     public LogUnsupportedOperationException(String message) {
         super(message);
+        LogUtil.append(message);
     }
 }

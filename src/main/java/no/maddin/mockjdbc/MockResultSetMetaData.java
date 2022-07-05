@@ -62,43 +62,43 @@ class MockResultSetMetaData implements ResultSetMetaData {
 
     @Override
     public boolean isAutoIncrement(int column) throws SQLException {
-        throw new UnsupportedOperationException("isAutoIncrement");
+        throw new LogUnsupportedOperationException("isAutoIncrement");
 
     }
 
     @Override
     public boolean isCaseSensitive(int column) throws SQLException {
-        throw new UnsupportedOperationException("isCaseSensitive");
+        throw new LogUnsupportedOperationException("isCaseSensitive");
 
     }
 
     @Override
     public boolean isSearchable(int column) throws SQLException {
-        throw new UnsupportedOperationException("isSearchable");
+        throw new LogUnsupportedOperationException("isSearchable");
 
     }
 
     @Override
     public boolean isCurrency(int column) throws SQLException {
-        throw new UnsupportedOperationException("isCurrency");
+        throw new LogUnsupportedOperationException("isCurrency");
 
     }
 
     @Override
     public int isNullable(int column) throws SQLException {
-        throw new UnsupportedOperationException("isNullable");
+        throw new LogUnsupportedOperationException("isNullable");
 
     }
 
     @Override
     public boolean isSigned(int column) throws SQLException {
-        throw new UnsupportedOperationException("isSigned");
+        throw new LogUnsupportedOperationException("isSigned");
 
     }
 
     @Override
     public int getColumnDisplaySize(int column) throws SQLException {
-        throw new UnsupportedOperationException("getColumnDisplaySize");
+        throw new LogUnsupportedOperationException("getColumnDisplaySize");
 
     }
 
@@ -134,7 +134,7 @@ class MockResultSetMetaData implements ResultSetMetaData {
 
     @Override
     public String getCatalogName(int column) throws SQLException {
-        throw new UnsupportedOperationException("getCatalogName");
+        throw new LogUnsupportedOperationException("getCatalogName");
 
     }
 
@@ -150,37 +150,37 @@ class MockResultSetMetaData implements ResultSetMetaData {
 
     @Override
     public boolean isReadOnly(int column) throws SQLException {
-        throw new UnsupportedOperationException("isReadOnly");
+        throw new LogUnsupportedOperationException("isReadOnly");
 
     }
 
     @Override
     public boolean isWritable(int column) throws SQLException {
-        throw new UnsupportedOperationException("isWritable");
+        throw new LogUnsupportedOperationException("isWritable");
 
     }
 
     @Override
     public boolean isDefinitelyWritable(int column) throws SQLException {
-        throw new UnsupportedOperationException("isDefinitelyWritable");
+        throw new LogUnsupportedOperationException("isDefinitelyWritable");
 
     }
 
     @Override
     public String getColumnClassName(int column) throws SQLException {
-        throw new UnsupportedOperationException("getColumnClassName");
+        throw new LogUnsupportedOperationException("getColumnClassName");
 
     }
 
     @Override
     public <T> T unwrap(Class<T> iface) throws SQLException {
-        throw new UnsupportedOperationException("unwrap");
+        throw new LogUnsupportedOperationException("unwrap");
 
     }
 
     @Override
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
-        throw new UnsupportedOperationException("isWrapperFor");
+        throw new LogUnsupportedOperationException("isWrapperFor");
 
     }
 

@@ -42,12 +42,12 @@ public class MockConnection implements Connection {
 
     @Override
     public CallableStatement prepareCall(String sql) throws SQLException {
-        throw new UnsupportedOperationException("prepareCall(String)");
+        throw new LogUnsupportedOperationException("prepareCall(String)");
     }
 
     @Override
     public String nativeSQL(String sql) throws SQLException {
-        throw new UnsupportedOperationException("nativeSQL(String)");
+        throw new LogUnsupportedOperationException("nativeSQL(String)");
     }
 
     @Override
@@ -57,17 +57,17 @@ public class MockConnection implements Connection {
 
     @Override
     public boolean getAutoCommit() throws SQLException {
-        throw new UnsupportedOperationException("getAutoCommit()");
+        throw new LogUnsupportedOperationException("getAutoCommit()");
     }
 
     @Override
     public void commit() throws SQLException {
-        throw new UnsupportedOperationException("commit()");
+        throw new LogUnsupportedOperationException("commit()");
     }
 
     @Override
     public void rollback() throws SQLException {
-        throw new UnsupportedOperationException("rollback()");
+        throw new LogUnsupportedOperationException("rollback()");
     }
 
     @Override
@@ -90,7 +90,7 @@ public class MockConnection implements Connection {
 
     @Override
     public void setReadOnly(boolean readOnly) throws SQLException {
-        throw new UnsupportedOperationException("setReadOnly");
+        throw new LogUnsupportedOperationException("setReadOnly");
     }
 
     @Override
@@ -100,7 +100,7 @@ public class MockConnection implements Connection {
 
     @Override
     public void setCatalog(String catalog) throws SQLException {
-        throw new UnsupportedOperationException("setCatalog(String)");
+        throw new LogUnsupportedOperationException("setCatalog(String)");
     }
 
     @Override
@@ -110,22 +110,22 @@ public class MockConnection implements Connection {
 
     @Override
     public void setTransactionIsolation(int level) throws SQLException {
-        throw new UnsupportedOperationException("steTransactionIsolation(int)");
+        throw new LogUnsupportedOperationException("steTransactionIsolation(int)");
     }
 
     @Override
     public int getTransactionIsolation() throws SQLException {
-        throw new UnsupportedOperationException("getTransactionIsolation");
+        throw new LogUnsupportedOperationException("getTransactionIsolation");
     }
 
     @Override
     public SQLWarning getWarnings() throws SQLException {
-        throw new UnsupportedOperationException("getWarnings");
+        throw new LogUnsupportedOperationException("getWarnings");
     }
 
     @Override
     public void clearWarnings() throws SQLException {
-        throw new UnsupportedOperationException("clearWarnings");
+        throw new LogUnsupportedOperationException("clearWarnings");
     }
 
     @Override
@@ -140,7 +140,7 @@ public class MockConnection implements Connection {
 
     @Override
     public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency) throws SQLException {
-        throw new UnsupportedOperationException("prepareCall(String,int,int)");
+        throw new LogUnsupportedOperationException("prepareCall(String,int,int)");
     }
 
     @Override
@@ -150,37 +150,37 @@ public class MockConnection implements Connection {
 
     @Override
     public void setTypeMap(Map<String, Class<?>> map) throws SQLException {
-        throw new UnsupportedOperationException("setTypeMap(Map<String,Class<?>>)");
+        throw new LogUnsupportedOperationException("setTypeMap(Map<String,Class<?>>)");
     }
 
     @Override
     public void setHoldability(int holdability) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public int getHoldability() throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public Savepoint setSavepoint() throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public Savepoint setSavepoint(String name) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void rollback(Savepoint savepoint) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void releaseSavepoint(Savepoint savepoint) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
@@ -222,57 +222,59 @@ public class MockConnection implements Connection {
 
     @Override
     public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public PreparedStatement prepareStatement(String sql, int autoGeneratedKeys) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public PreparedStatement prepareStatement(String sql, int[] columnIndexes) throws SQLException {
-        throw new UnsupportedOperationException("prepareStatement(String, int[])");
+        throw new LogUnsupportedOperationException("prepareStatement(String, int[])");
     }
 
     @Override
     public PreparedStatement prepareStatement(String sql, String[] columnNames) throws SQLException {
-        throw new UnsupportedOperationException("prepare(String,String[])");
+        throw new LogUnsupportedOperationException("prepare(String,String[])");
     }
 
     @Override
     public Clob createClob() throws SQLException {
-        throw new UnsupportedOperationException("createClob()");
+        throw new LogUnsupportedOperationException("createClob()");
     }
 
     @Override
     public Blob createBlob() throws SQLException {
-        throw new UnsupportedOperationException("createBlob()");
+        throw new LogUnsupportedOperationException("createBlob()");
     }
 
     @Override
     public NClob createNClob() throws SQLException {
-        throw new UnsupportedOperationException("createNClob()");
+        throw new LogUnsupportedOperationException("createNClob()");
     }
 
     @Override
     public SQLXML createSQLXML() throws SQLException {
-        throw new UnsupportedOperationException("createSQLXML()");
+        throw new LogUnsupportedOperationException("createSQLXML()");
     }
 
     @Override
     public boolean isValid(int timeout) throws SQLException {
-        throw new UnsupportedOperationException("isValid()");
+        // fixme
+//        throw new LogUnsupportedOperationException("isValid()");
+        return true;
     }
 
     @Override
     public void setClientInfo(String name, String value) throws SQLClientInfoException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void setClientInfo(Properties properties) throws SQLClientInfoException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
@@ -287,47 +289,47 @@ public class MockConnection implements Connection {
 
     @Override
     public Array createArrayOf(String typeName, Object[] elements) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public Struct createStruct(String typeName, Object[] attributes) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void setSchema(String schema) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public String getSchema() throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void abort(Executor executor) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public int getNetworkTimeout() throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public <T> T unwrap(Class<T> iface) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     @Override
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
-        throw new UnsupportedOperationException("not yet");
+        throw new LogUnsupportedOperationException("not yet");
     }
 
     public Properties getConnectionProperties() {
