@@ -17,8 +17,7 @@ public class MockConnection implements Connection {
         this.url = url;
         addPropsFromUrl(url);
         this.connectionProperties.putAll(info);
-        this.metadata = new MockDatabaseMetaData();
-        metadata.setURL(url);
+        this.metadata = new JdbcDatabaseMetaData(url, this);
     }
 
     private void addPropsFromUrl(String url) {
@@ -106,7 +105,7 @@ public class MockConnection implements Connection {
 
     @Override
     public String getCatalog() throws SQLException {
-        throw new UnsupportedOperationException("getCatalog()");
+        return "default";
     }
 
     @Override

@@ -10,6 +10,10 @@ public class MockDatabaseMetaData implements DatabaseMetaData {
 
     private String url;
 
+    public MockDatabaseMetaData(String url) {
+        this.url = url;
+    }
+
     @Override
     public boolean allProceduresAreCallable() throws SQLException {
         return false;

@@ -4,9 +4,7 @@ package no.maddin.mockjdbc;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 import org.junit.jupiter.api.Test;
@@ -42,5 +40,42 @@ class DriverTest {
         } catch (Exception ex) {
             assertThat(ex, hasProperty("message", containsString("not accepted")));
         }
+    }
+
+    @Test
+    void showTables() throws Exception {
+        Connection connection = DriverManager.getConnection("jdbc:mock:csv;path=/tmp");
+
+        DatabaseMetaData dmd = connection.getMetaData();
+        ResultSet rs = dmd.getTables(connection.getCatalog(), null, "TAB_%", null);
+        while (rs.next()) {
+            System.out.println(rs.getString(3));
+        }
+    }
+
+    @Test
+    void getFileName() throws Exception {
+        String s = DriverTool.fileName("SELECT TOP 10000 `TableauSQL`.`a` AS `a`,\n" +
+                "  `TableauSQL`.`b` AS `b`\n" +
+                "FROM (\n" +
+                "  select a, b from mytable\n" +
+                ") `TableauSQL`");
+        System.out.println(s);
+    }
+
+    @Test
+    void getData() throws Exception {
+
+        Connection connection = DriverManager.getConnection("jdbc:mock:csv;path=/tmp");
+//        ResultSet rs = connection.createStatement().executeQuery("select a, b from mytable");
+        ResultSet rs = connection.prepareStatement("select a, b from `default`.`mytable`").executeQuery();
+        while (rs.next()) {
+            System.out.println(rs.getString(1));
+        }
+    }
+
+    @Test
+    void append() {
+        LogUtil.append("ccc");
     }
 }

@@ -27,10 +27,12 @@ public class MockStatement implements CallableStatement {
     }
 
     private synchronized void openCurrentFile(String sql) {
+        LogUtil.append(sql);
+
         if (currentFile != null) {
             throw new IllegalArgumentException("file already set");
         }
-        currentFile = new File(connectionProperties.getProperty("path"), DriverTool.fileName(sql) + ".csv");
+        currentFile = new File(connectionProperties.getProperty("path"),  "mock.csv");
         isClosed.set(false);
     }
 
