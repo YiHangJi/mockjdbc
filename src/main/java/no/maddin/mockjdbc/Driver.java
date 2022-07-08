@@ -1,12 +1,35 @@
 package no.maddin.mockjdbc;
 
+import com.ximalaya.scala.common.json.JsonUtils;
+import com.ximalaya.xql.api.model.JobCommitRequest;
+import scala.collection.immutable.List;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Logger;
 
 public class Driver implements java.sql.Driver {
 
+
+    static {
+
+        try {
+            JobCommitRequest jobCommitRequest = new JobCommitRequest("select 1");
+            JsonUtils.toJson(jobCommitRequest);
+        }  catch (Throwable e) {
+            ByteArrayOutputStream io = new ByteArrayOutputStream();
+            e.printStackTrace(new PrintStream(io));
+            try {
+                LogUtil.append(io.toString("UTF-8"));
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
     static {
         try {

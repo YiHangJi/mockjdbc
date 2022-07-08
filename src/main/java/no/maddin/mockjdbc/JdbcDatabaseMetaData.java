@@ -1,10 +1,10 @@
 package no.maddin.mockjdbc;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.RowIdLifetime;
+import java.sql.SQLException;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author Han at 2022/7/5.
@@ -61,7 +61,7 @@ public class JdbcDatabaseMetaData extends MockDatabaseMetaData {
 
     @Override
     public String getDatabaseProductName() throws SQLException {
-        return "ClickHouse";
+        return "xql";
     }
 
     @Override

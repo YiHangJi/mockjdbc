@@ -3,19 +3,29 @@ package no.maddin.mockjdbc;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-class MockResultSetMetaData implements ResultSetMetaData {
+public class MockResultSetMetaData implements ResultSetMetaData {
 
-    private enum DataType {
-        VARCHAR(Types.VARCHAR),
+    public enum DataType {
+        BIT(Types.BIT),
+        BIGINT(Types.BIGINT),
         INTEGER(Types.INTEGER),
+        TINYINT(Types.TINYINT),
+        SMALLINT(Types.SMALLINT),
+        FLOAT(Types.FLOAT),
         DOUBLE(Types.DOUBLE),
+        REAL(Types.REAL),
+        DECIMAL(Types.DECIMAL),
+        VARCHAR(Types.VARCHAR),
+        BINARY(Types.BINARY),
         DATE(Types.DATE),
         TIME(Types.TIME),
-        TIMESTAMP(Types.TIMESTAMP);
+        TIMESTAMP(Types.TIMESTAMP),
+        BOOLEAN(Types.BOOLEAN);
 
         private final int sqlType;
 
@@ -23,8 +33,27 @@ class MockResultSetMetaData implements ResultSetMetaData {
             this.sqlType = sqlType;
         }
 
+        static final Map<Integer, DataType> BY_LABEL = new HashMap<>();
+
+        static {
+            for (DataType e: values()) {
+                BY_LABEL.put(e.sqlType, e);
+            }
+        }
+
+
         public static DataType fromString(String spec) {
             return valueOf(spec.toUpperCase());
+        }
+
+
+        public static DataType fromType(int types) {
+            DataType dataType = BY_LABEL.get(types);
+            if (dataType != null) {
+                return dataType;
+            } else {
+                return VARCHAR;
+            }
         }
     }
 
